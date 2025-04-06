@@ -18,15 +18,11 @@ def fpath(n, edges):
 
 
 n, m = map(int, input().split())
+graph = {}
+for i in range(1, n + 1):
+    graph[i] = []
+for _ in range(m):
+    a, b, w = map(int, input().split())
+    graph[a].append((b, w))
 
-if n == 0:
-    print(-1)
-else:
-    edges = {}
-    for i in range(1, n + 1):
-        edges[i] = []
-    for i in range(m):
-        a,b,c= input().split()
-        a,b ,c= int(a), int(b), int(c)
-        edges[a].append((b,c))
-    print(fpath(n, edges))
+print(fpath(n, graph))
